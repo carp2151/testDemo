@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+在$和变量之间加入！符号，当nam变量不存在时候显示空白
+<h2>$!nam</h2>
+<h2>$name</h2>
+<!--通过#set去设置变量的值-->
+#set($name="test")
+
+<h3>$name</h3>
+#foreach($item in $list)
+$item
+$velocityCount
+#end
+
+#include("hello.vm")
+
+
+#if($name!="test")
+<h2>!test</h2>
+<!--elseif是连起来的-->
+#elseif($name=="test")
+<h3>test</h3>
+#else
+<h2>null</h2>
+#end
+
+<!--定义宏-->
+#macro(sayHello $word $test)
+    say${word}$test
+#end
+
+<!--调用宏-->
+#sayHello("lizhenghua","test")
+
+</body>
+</html>
