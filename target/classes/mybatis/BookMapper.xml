@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lzh.testDemo.mapper.BookMapper">
+    <resultMap id="bookMap" type="Book">
+        <id column="book_id" property="bookId" />
+        <result column="book_name" property="bookName"/>
+        <result column="book_author" property="bookAuthor"/>
+        <result column="book_info" property="bookInfo"/>
+        <result column="status" property="status"/>
+        <result column="count" property="count"/>
+    </resultMap>
+
+    <select id="selectBookById" resultType="Book" resultMap="bookMap">
+        select * from Book where book_id = #{bookId}
+    </select>
+
+    <insert id="saveBook" parameterType="Book">
+        insert into book(book_id,book_name,book_author,book_info)
+        values (#{bookId},#{bookName},#{bookAuthor},#{bookInfo});
+    </insert>
+
+    <update id="updateBookNameById" >
+        update book set book_name=#{bookName} where book_id=#{bookId};
+    </update>
+
+    <select id="selectBookList" resultType="Book" resultMap="bookMap">
+        select * from Book;
+    </select>
+</mapper>
