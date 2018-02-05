@@ -10,5 +10,6 @@
     </typeAliases>
     <mappers>
         <mapper resource="mybatis/BookMapper.xml"/>
+        <mapper resource="mybatis/CarpUsersMapper.xml"/>
     </mappers>
 </configuration>
